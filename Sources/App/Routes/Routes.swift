@@ -47,7 +47,7 @@ extension Droplet {
                     /// Start command "/start".
                     case "/kek":
                         /// Set the response message text.
-                        if username == "SerhiiSyrotynin" {
+                        if username == "ruslimn" {
                             response = username + " loshok"
                         }
                         else {
