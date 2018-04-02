@@ -32,7 +32,7 @@ extension Droplet {
             /// Message text from request JSON.
             let message: String = request.data["message", "text"]?.string ?? ""
             /// User first name from request JSON.
-            let userFirstName: String = request.data["message", "from", "first_name"]?.string ?? ""
+            let username: String = request.data["message", "from", "username"]?.string ?? ""
             
             /// Check if the message is empty
             if message.isEmpty {
@@ -47,11 +47,11 @@ extension Droplet {
                     /// Start command "/start".
                     case "/kek":
                         /// Set the response message text.
-                        if userFirstName == "SerhiiSyrotynin" {
-                            response = userFirstName + " loshok"
+                        if username == "SerhiiSyrotynin" {
+                            response = username + " loshok"
                         }
                         else {
-                            response = userFirstName + ", Welcome to СЕРЕГА&CAHE4EK_CREW!\n"
+                            response = username + ", Welcome to СЕРЕГА&CAHE4EK_CREW!\n"
                         }
                     /// Help command "/help".
                     case "/help":
