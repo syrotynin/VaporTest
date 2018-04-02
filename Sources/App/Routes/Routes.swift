@@ -47,7 +47,7 @@ extension Droplet {
                     /// Start command "/start".
                     case "/start":
                         /// Set the response message text.
-                        response = "Welcome to SwiftyBot " + userFirstName + "!\n" +
+                        response = "ITS A TEST " + userFirstName + "!\n" +
                         "To list all available commands type /help"
                     /// Help command "/help".
                     case "/help":
