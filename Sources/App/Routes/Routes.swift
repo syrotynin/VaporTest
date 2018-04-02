@@ -45,19 +45,18 @@ extension Droplet {
                     /// Check what type of command is.
                     switch message {
                     /// Start command "/start".
-                    case "/start":
+                    case "/kek":
                         /// Set the response message text.
-                        response = "ITS A TEST " + userFirstName + "!\n" +
-                        "To list all available commands type /help"
+                        if userFirstName == "ruslimn" {
+                            response = userFirstName + " loshok"
+                        }
+                        else {
+                            response = userFirstName + ", Welcome to СЕРЕГА&CAHE4EK_CREW!\n"
+                        }
                     /// Help command "/help".
                     case "/help":
                         /// Set the response message text.
-                        response = "Welcome to SwiftyBot " +
-                            "an example on how create a Telegram bot with Swift using Vapor.\n" +
-                            "https://www.fabriziobrancati.com/posts/how-create-telegram-bot-swift-vapor-ubuntu-macos\n\n" +
-                            "/start - Welcome message\n" +
-                            "/help - Help message\n" +
-                        "Any text - Returns the reversed message"
+                        response = "use /kek"
                     /// Command not valid.
                     default:
                         /// Set the response message text and suggest to type "/help".
