@@ -57,6 +57,16 @@ extension Droplet {
                     case "/help":
                         /// Set the response message text.
                         response = "use /kek"
+                        
+                    case "/newPhoto":
+                        return try JSON(node:
+                            [
+                                "method": "setChatPhoto",
+                                "chat_id": chatID,
+                                "photo": "http://i0.kym-cdn.com/photos/images/original/001/111/422/7a9.jpg"
+                            ]
+                        )
+                        
                     /// Command not valid.
                     default:
                         /// Set the response message text and suggest to type "/help".
