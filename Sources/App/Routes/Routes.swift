@@ -67,6 +67,9 @@ extension Droplet {
                             ]
                         )
                         
+                    case "/chatId":
+                        response = "\(chatID)"
+                        
                     /// Command not valid.
                     default:
                         /// Set the response message text and suggest to type "/help".
