@@ -79,7 +79,7 @@ extension Droplet {
                     /// It isn't a Telegram command, so creates a reversed message text.
                 } else {
                     /// Set the response message text.
-                    response = message
+                    //response = message
                 }
             }
             
