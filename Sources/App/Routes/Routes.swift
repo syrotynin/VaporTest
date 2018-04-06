@@ -34,7 +34,7 @@ extension Droplet {
             /// User first name from request JSON.
             let username: String = request.data["message", "from", "username"]?.string ?? ""
             // sticker id from request JSON.
-            if let sticker = request.data["sticker", "file_id"]?.string {
+            if let sticker = request.data["message", "sticker", "file_id"]?.string {
                 return try JSON(node:
                     [
                         "method": "sendMessage",
