@@ -33,6 +33,16 @@ extension Droplet {
             let message: String = request.data["message", "text"]?.string ?? ""
             /// User first name from request JSON.
             let username: String = request.data["message", "from", "username"]?.string ?? ""
+            // sticker id from request JSON.
+            if let sticker = request.data["sticker", "file_id"]?.string {
+                return try JSON(node:
+                    [
+                        "method": "sendMessage",
+                        "chat_id": chatID,
+                        "text": sticker
+                    ]
+                )
+            }
             
             /// Check if the message is empty
             if message.isEmpty {
@@ -56,16 +66,7 @@ extension Droplet {
                     /// Help command "/help".
                     case "/help":
                         /// Set the response message text.
-                        response = "use /kek"
-                        
-                    case "/newPhoto":
-                        return try JSON(node:
-                            [
-                                "method": "setChatPhoto",
-                                "chat_id": chatID,
-                                "photo": "http://i0.kym-cdn.com/photos/images/original/001/111/422/7a9.jpg"
-                            ]
-                        )
+                        response = "use /kek /chatId \n Send sticker to get its id"
                         
                     case "/chatId":
                         response = "\(chatID)"
