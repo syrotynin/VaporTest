@@ -34,15 +34,7 @@ extension Droplet {
             /// User first name from request JSON.
             let username: String = request.data["message", "from", "username"]?.string ?? ""
             // sticker id from request JSON.
-            if let sticker: String = request.data["message", "sticker", "file_id"]?.string {
-                return try JSON(node:
-                    [
-                        "method": "sendMessage",
-                        "chat_id": chatID,
-                        "text": sticker
-                    ]
-                )
-            }
+            let sticker: String = request.data["message", "sticker", "file_id"]?.string ?? ""
             
             /// Check if the message is empty
             if message.isEmpty {
@@ -66,10 +58,13 @@ extension Droplet {
                     /// Help command "/help".
                     case "/help":
                         /// Set the response message text.
-                        response = "use /kek /chatId \n Send sticker to get its id"
+                        response = "use /kek /chatId /test \n Send sticker to get its id"
                         
                     case "/chatId":
                         response = "\(chatID)"
+                        
+                    case "/test":
+                        response = "TEST"
                         
                     /// Command not valid.
                     default:
@@ -80,8 +75,11 @@ extension Droplet {
                     /// It isn't a Telegram command, so creates a reversed message text.
                 } else {
                     /// Set the response message text.
-                    //response = message
                 }
+            }
+            
+            if !sticker.isEmpty {
+                response = sticker
             }
             
             /// Create the JSON response.
