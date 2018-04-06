@@ -34,7 +34,7 @@ extension Droplet {
             /// User first name from request JSON.
             let username: String = request.data["message", "from", "username"]?.string ?? ""
             // sticker id from request JSON.
-            let sticker: String = request.data["message", "sticker", "file_id"]?.string ?? ""
+            //let sticker: String = request.data["message", "sticker", "file_id"]?.string ?? ""
             
             /// Check if the message is empty
             if message.isEmpty {
@@ -78,9 +78,9 @@ extension Droplet {
                 }
             }
             
-            if !sticker.isEmpty {
-                response = sticker
-            }
+//            if !sticker.isEmpty {
+//                response = sticker
+//            }
             
             /// Create the JSON response.
             /// https://core.telegram.org/bots/api#sendmessage
